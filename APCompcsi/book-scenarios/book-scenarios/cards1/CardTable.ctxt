@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=CardTable
+comment0.text=\r\n\ CardTable\ is\ a\ 2D\ surface\ for\ Card\ objects\ to\ sit\ on.\ \r\n\ Generates\ various\ card\ arrangements\ when\ 1,2,3,4\ or\ 5\ on\ the\ \r\n\ keyboard\ is\ pressed.\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=CardTable()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ CardTable.\r\n\ \r\n
+comment2.params=
+comment2.target=void\ case1()
+comment2.text=\r\n\ Case\ "1"\:\r\n\ Implemented\ already,\ but\ you\ will\ need\ to\ update\ it\ after\ changing\ the\r\n\ Card\ class.\r\n\ \r\n\ Show\ all\ the\ cards\ of\ one\ suit\ in\ increasing\ rank\ from\ left\ to\ right,\r\nevenly\ distributed\ horizontally\ over\ the\ whole\ table\ and\ centered\ vertically.\r\nUse\ for\ loop(s)\ and\ only\ one\ addObject\ call.\ \ \r\n
+comment3.params=
+comment3.target=void\ case2()
+comment3.text=\r\n\ Case\ "2"\:\r\n\ Show\ all\ the\ cards\ of\ all\ 4\ suits\ in\ 4\ rows;\r\n\ each\ row\ has\ increasing\ rank\ from\ left\ to\ right,\ \r\n\ evenly\ distributed\ horizontally\ over\ the\ whole\ table,\r\n\ the\ rows\ evenly\ distributed\ vertically\ over\ the\ whole\ table.\r\n\ Use\ for\ loop(s)\ and\ only\ one\ addObject\ call.\ \ \r\n
+comment4.params=
+comment4.target=void\ case3()
+comment4.text=\r\n\ Case\ "3"\:\r\n\ Show\ all\ 12\ face\ cards\ (Jacks,\ Queens,\ and\ Kings)\ in\ a\ \r\n\ grid\ 3\ high\ and\ 4\ wide,\ flipped\ up\ and\ down\ in\ a\ checkerboard\ pattern.\r\n\ Have\ it\ arranged\ so\ cards\ with\ the\ same\ suits\ share\ a\ column,\r\n\ and\ cards\ with\ the\ same\ faces\ share\ a\ row,\ and\ flip\ down\ every\ other\r\n\ card\ so\ it\ looks\ a\ bit\ like\ the\ below\ pattern.\r\n\ Use\ for\ loop(s)\ and\ only\ one\ addObject\ call.\ \ \r\n\ X\ O\ X\ O\r\n\ O\ X\ O\ X\r\n\ X\ O\ X\ O\r\n
+comment5.params=
+comment5.target=void\ case4()
+comment5.text=\r\n\ Case\ "4"\:\r\n\ Generate\ all\ even\ numbered\ cards\ of\ all\ suits\ (no\ face\ cards)\r\n\ and\ place\ them\ at\ random\ positions\ on\ the\ table.\r\n\ Have\ them\ rotated\ and\ flipped\ up\ or\ down\ randomly\ too.\ \r\n\ Use\ for\ loop(s)\ and\ only\ one\ addObject\ call.\ \ \r\n
+comment6.params=
+comment6.target=void\ case5()
+comment6.text=\r\n\ Case\ "5"\:\r\n\ Create\ your\ own\ interesting\ arrangement\ of\ cards\ -\ you\r\n\ must\ have\ at\ least\ 10\ cards\ with\ no\ repeats,\ it\r\n\ must\ use\ at\ least\ 2\ suits,\ and\ some\ cards\ must\ be\ flipped\ face\ down.\ \r\n\ (Don't\ repeat\ any\ of\ the\ above\ cases\r\n\ -\ make\ it\ different\ in\ at\ least\ some\ key\ way)\r\n\ Use\ at\ least\ 2\ nested\ for\ loops\ and\ only\ one\ addObject\ call.\ \r\n\ Describe\ your\ arrangement\ here\:\r\n\ >\r\n\ >\ (Your\ description\ goes\ here)\r\n\ >\r\n\ >\r\n
+comment7.params=
+comment7.target=void\ act()
+comment7.text=\r\n\ When\ a\ number\ key\ from\ 1\ to\ 5\ is\ pressed,\ \r\n\ remove\ all\ Objects\ and\ run\ the\ corresponding\ case\r\n\ \r\n\ Already\ partially\ implemented\ for\ you\ to\ run\ case1\ appropriately.\r\n\ You\ need\ to\ update\ it\ to\ work\ for\ all\ 5\ cases,\ and\ to\ use\ a\ \r\n\ switch\ statement\ instead\ of\ if-else\ statements.\r\n
+numComments=8

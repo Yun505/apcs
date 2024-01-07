@@ -1,0 +1,93 @@
+;
+; Values for starting the program
+;
+define x 	   $03
+define y	   $05
+
+;
+; Addresses
+;
+define ans_addr	   $00
+define temp_addr   $02
+define temp_addr_2   $04
+
+main:
+	LDA #y
+	PHA 
+	LDA #x
+	PHA 
+	JSR c
+	PLA ; get result, written over x
+	STA ans_addr
+	PLA ; throw away y
+	BRK
+
+;
+; c(x,y) = b(x+4,x) + y
+;
+c:
+
+;
+;  Your code here.  Good luck!
+;
+
+
+
+
+
+;
+;
+; a(x) = 2x + 3
+;
+a:
+	TSX
+	LDA $0103, X	; loads x into accumulator
+	
+	STA temp_addr
+	CLC
+	ADC temp_addr	; 2x now in accumulator
+	CLC
+	ADC #$03
+	STA $0103, X	; replace the parameter with the return value
+	RTS
+
+
+;
+;
+; b(x,y) = a(x+2) + a(3y)
+;
+b:
+
+	TSX
+	LDA $0103, X	; loads the first parameter (x) into accumulator
+
+	CLC
+	ADC #$02	
+	PHA 			; Push x+2 to the stack as an argument for a.
+	JSR a  			; Leave the result on the stack for now
+
+	TSX			
+	LDA $0105, X	; loads the second parameter (y) into accumulator
+	
+	STA temp_addr
+	CLC
+	ADC temp_addr	; doubles y
+	CLC
+	ADC temp_addr	; triples y
+	PHA 			; Push 3y to the stack as an argument for a.
+	JSR a			; Result from this call will be left on stack
+
+	
+	PLA				; a(3y)
+	STA temp_addr   
+	PLA				; a(x+2)
+	CLC
+	ADC temp_addr
+					; return value is in the accumulator
+	
+	TSX
+	STA $0103, X	; overrite first parameter with the return val
+
+	RTS
+
+

@@ -1,0 +1,192 @@
+
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+* Space. The final frontier. 
+* 
+* @author 
+* @version 
+*/
+public class Space extends World
+{
+    
+    private String lastKey = "";
+    private List<Alpha> alphaParticles;
+    private List<Beta> betaParticles;
+    private List<Gamma> gammaParticles;
+    private List<Delta> deltaParticles;
+    private List<Epsilon> epsilonParticles;
+    
+    /**
+     * Constructor for objects of class Space.
+     * 
+     */
+    public Space()
+    {    
+        super(960, 620, 1);
+        alphaParticles = new ArrayList<Alpha>();
+        betaParticles = new ArrayList<Beta>();
+        gammaParticles = new ArrayList<Gamma>();
+        deltaParticles = new ArrayList<Delta>();
+        epsilonParticles = new ArrayList<Epsilon>();
+    }
+    
+    /**
+     * Create a given number of bodies in the universe. Each body has a random initial state (size,
+     * mass, direction, speed, color, location).
+     */
+    
+    public void checkKeysMakeParticles()
+    {
+        String key = Greenfoot.getKey();
+        if (key != null && !key.equals(lastKey)) {
+            switch(key.toLowerCase()) {
+                case "space":
+                    alphaParticles.clear();
+                    betaParticles.clear();
+                    gammaParticles.clear();
+                    deltaParticles.clear();
+                    epsilonParticles.clear();
+                    removeObjects(getObjects(null));
+                    break;
+                case "1":
+                    Alpha ap = new Alpha();
+                    //ap.addToVelocity(new Vector(Greenfoot.getRandomNumber(360),Greenfoot.getRandomNumber(150) / 100.0));
+                    alphaParticles.add(ap);
+                    addObject(ap, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight()));
+                    break;
+                case "2":
+                    Beta bp = new Beta();
+                    //bp.addToVelocity(new Vector(Greenfoot.getRandomNumber(360),Greenfoot.getRandomNumber(150) / 100.0));
+                    betaParticles.add(bp);
+                    addObject(bp, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight()));
+                    break;             
+                case "3":
+                    Gamma gp = new Gamma();
+                    //gp.addToVelocity(new Vector(Greenfoot.getRandomNumber(360),Greenfoot.getRandomNumber(150) / 100.0));
+                    gammaParticles.add(gp);
+                    addObject(gp, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight()));
+                    break;
+                case "4":
+                    Delta dp = new Delta();
+                    //dp.addToVelocity(new Vector(Greenfoot.getRandomNumber(360),Greenfoot.getRandomNumber(150) / 100.0));
+                    deltaParticles.add(dp);
+                    addObject(dp, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight()));
+                    break;
+                case "5":
+                    Epsilon ep = new Epsilon();
+                    //ep.addToVelocity(new Vector(Greenfoot.getRandomNumber(360),Greenfoot.getRandomNumber(150) / 100.0));
+                    epsilonParticles.add(ep);
+                    addObject(ep, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight()));
+                    break;
+                case "6":
+                    removeObjects(alphaParticles);
+                    alphaParticles.clear();
+                    break; 
+                case "7":
+                    removeObjects(betaParticles);
+                    betaParticles.clear();
+                    break;
+                case "8":
+                    removeObjects(gammaParticles);
+                    gammaParticles.clear();
+                    break;
+                case "9":
+                    removeObjects(deltaParticles);
+                    deltaParticles.clear();
+                    break;
+                case "0":
+                    removeObjects(epsilonParticles);
+                    epsilonParticles.clear();
+                    break;
+                default:
+                    
+            }
+        }
+        lastKey = key;
+    }
+    
+    private void alphaForces() {
+        for (Alpha a: alphaParticles) {
+            for (Alpha a2: alphaParticles) {
+                if (a != a2)
+                    a.applyGravityForce(a2);
+            }
+        }
+    }
+    
+    private void betaForces() {
+        for (Beta b : betaParticles) {
+            for (Alpha a : alphaParticles)
+                b.applyGravityForce(a);
+            for (Beta b2 : betaParticles)
+                if(b != b2){
+                b.applyElectroMagicForce(b2);
+                }
+            for (Gamma g : gammaParticles)
+                b.applyElectroMagicForce(g);
+                
+            
+        }
+    }
+    
+    private void gammaForces() {
+        for (Gamma g : gammaParticles) {
+            for (Alpha a : alphaParticles)
+                g.applyGravityForce(a);
+            for (Beta b : betaParticles)
+                g.applyElectroMagicForce(b);
+            for (Gamma g2 : gammaParticles)
+                if(g != g2)    
+                g.applyElectroMagicForce(g2);
+        }
+    }
+    
+    private void deltaForces() {
+        for (Delta d : deltaParticles) {
+            for (Delta d2 : deltaParticles) {
+                if (d != d2) {
+                    d.applyNuclearFamilyForce(d2);
+                    d.applyElectroMagicForce(d2);
+                }
+            }
+            for (Epsilon e : epsilonParticles) {
+                d.applyElectroMagicForce(e);
+            }
+            for (Beta b : betaParticles)
+                d.applyElectroMagicForce(b);
+            for (Gamma g : gammaParticles)
+                d.applyElectroMagicForce(g);
+        }
+    }
+    
+    private void epsilonForces() {
+        for (Epsilon e : epsilonParticles) {
+            for (Epsilon e2 : epsilonParticles) {
+                if (e != e2) {
+                    e.applyNuclearFamilyForce(e2);
+                    e.applyElectroMagicForce(e2);
+                }
+            }
+            for (Delta d : deltaParticles) {
+                e.applyElectroMagicForce(d);
+            }
+            for (Beta b : betaParticles)
+                e.applyElectroMagicForce(b);
+            for (Gamma g : gammaParticles)
+                e.applyElectroMagicForce(g);
+        }
+    }
+    
+    public void act()
+    {
+        checkKeysMakeParticles();
+        alphaForces();
+        betaForces();
+        gammaForces();
+        deltaForces();
+        epsilonForces();
+    }
+}

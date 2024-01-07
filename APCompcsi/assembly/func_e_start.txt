@@ -1,0 +1,163 @@
+;
+; Values for starting the program
+;
+define x 	   $03
+define y	   $02
+define z	   $08
+
+;
+; Addresses
+;
+define ans_addr	   $00
+define temp_addr   $02
+define temp_addr_2   $04
+
+main:
+	LDA #z
+	PHA 
+	LDA #y
+	PHA 
+	LDA #x
+	PHA 
+
+	JSR e
+
+	PLA 				; get result
+	STA ans_addr
+	
+	PLA					; get rid of extra parameter from stack
+	PLA					; get rid of extra parameter from stack
+	BRK
+
+;
+; e(x, y, z) = b(x-1, y+2) + 2 * a(z) - 5
+;
+e:
+	TSX
+	LDA $0104, X	; Accumulator now has "y"
+	CLC
+	ADC #$02
+	PHA
+
+	LDA $0103, X	; Accumulator now has "x"
+	SEC 
+	SBC #$01
+	PHA 			; Push x - 1 onto the stack
+
+
+	JSR b;
+	PLA
+	STA temp_addr
+	PLA
+	LDA temp_addr
+	PHA
+	
+	TSX
+	LDA $0106, X	; Accumulator now has "z"
+	PHA				; Push z onto the stack.
+
+	JSR a;
+	PLA
+	STA temp_addr_2
+	CLC
+	ADC temp_addr_2
+	SEC
+	SBC #$05
+	STA temp_addr_2
+	PLA
+	CLC
+	ADC temp_addr_2
+	TSX
+	STA $0103, X
+	RTS
+
+
+
+	
+
+;
+;
+; c(x,y) = b(x+4,x) + y
+;
+c:
+	TSX
+	LDA $0103, X	; Accumulator now has "x"
+	PHA				; Push x onto the stack.
+	
+	CLC
+	ADC #$04 
+	PHA 			; Push x + 4 onto the stack
+	
+	JSR b
+	
+	PLA				; Get the result from the stack
+	STA temp_addr	; saves b(x+4, x)
+	
+	PLA				; Throw away the other parameter (x+4)
+
+	TSX
+	LDA $0104, X	; Accumulator now has "y"
+	
+	CLC
+	ADC temp_addr 	; adds b(x+4, x) with accumulator
+	
+	STA $0103, X 	; Write the final value to the stack
+
+	RTS
+
+;
+;
+; a(x) = 2x + 3
+;
+a:
+	TSX
+	LDA $0103, X	; loads x into accumulator
+	
+	STA temp_addr
+	CLC
+	ADC temp_addr	; 2x now in accumulator
+	CLC
+	ADC #$03
+	STA $0103, X	; replace the parameter with the return value
+	RTS
+
+
+;
+;
+; b(x,y) = a(x+2) + a(3y)
+;
+b:
+
+	TSX
+	LDA $0103, X	; loads the first parameter (x) into accumulator
+
+	CLC
+	ADC #$02	
+	PHA 			; Push x+2 to the stack as an argument for a.
+	JSR a  			; Leave the result on the stack for now
+
+	TSX			
+	LDA $0105, X	; loads the second parameter (y) into accumulator
+	
+	STA temp_addr
+	CLC
+	ADC temp_addr	; doubles y
+	CLC
+	ADC temp_addr	; triples y
+	PHA 			; Push 3y to the stack as an argument for a.
+	JSR a			; Result from this call will be left on stack
+
+	
+	PLA				; a(3y)
+	STA temp_addr   
+	PLA				; a(x+2)
+	CLC
+	ADC temp_addr
+					; return value is in the accumulator
+	
+	TSX
+	STA $0103, X	; overrite first parameter with the return val
+
+	RTS
+
+

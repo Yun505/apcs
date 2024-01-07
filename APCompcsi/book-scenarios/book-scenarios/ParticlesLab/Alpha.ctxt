@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Alpha
+comment0.text=\r\n\ Alpha\ particles\ are\ large\ red\ particles,\ typically\ without\ charge.\r\n\ \r\n
+comment1.params=
+comment1.target=Alpha()
+comment1.text=\r\n\ Construct\ an\ Alpha\ Particle\ with\ default\ size,\ mass,\ velocity\ and\ color.\r\n
+numComments=2

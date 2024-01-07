@@ -1,0 +1,316 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch ChatServer",
+            "request": "launch",
+            "mainClass": "day7_bca_chat_with_serialization.ChatServer",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch ChatClient",
+            "request": "launch",
+            "mainClass": "day7_bca_chat_with_serialization.ChatClient",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch ChatClient",
+            "request": "launch",
+            "mainClass": "day5_10.ChatClient",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch RandomizeClient",
+            "request": "launch",
+            "mainClass": "day7_serialize.RandomizeClient",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch RandomizeServer",
+            "request": "launch",
+            "mainClass": "day7_serialize.RandomizeServer",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch HelloClient",
+            "request": "launch",
+            "mainClass": "day3.HelloClient",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch test",
+            "request": "launch",
+            "mainClass": "test",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch ThreadsafeCollections",
+            "request": "launch",
+            "mainClass": "ThreadsafeCollections",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch RaceCondition",
+            "request": "launch",
+            "mainClass": "RaceCondition",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch RunTestScenarios",
+            "request": "launch",
+            "mainClass": "RunTestScenarios",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Farm",
+            "request": "launch",
+            "mainClass": "animals.Farm",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch MainFrame",
+            "request": "launch",
+            "mainClass": "bouncer.MainFrame",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "vmArgs": "--module-path \"C:\\javafx-sdk-11.0.2\\javafx-sdk-11.0.2\\lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "Launch ArrayFundamentals",
+            "request": "launch",
+            "mainClass": "ArrayFundamentals",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch BCAListTest",
+            "request": "launch",
+            "mainClass": "BCAListTest",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch BCAQueueTest",
+            "request": "launch",
+            "mainClass": "BCAQueueTest",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch ConnectFour",
+            "request": "launch",
+            "mainClass": "ConnectFour.ConnectFour",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Day1_MergingLists",
+            "request": "launch",
+            "mainClass": "Day1_MergingLists",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Day2_MergeSort",
+            "request": "launch",
+            "mainClass": "Day2_MergeSort",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Day3_BinarySearch",
+            "request": "launch",
+            "mainClass": "Day3_BinarySearch",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Day3_ReverseNumbers",
+            "request": "launch",
+            "mainClass": "Day3_ReverseNumbers",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Day4_ArrayListDemo",
+            "request": "launch",
+            "mainClass": "Day4_ArrayListDemo",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Day4_LoopExercise2",
+            "request": "launch",
+            "mainClass": "Day4_LoopExercise2",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Day4_Practice1_Intersection",
+            "request": "launch",
+            "mainClass": "Day4_Practice1_Intersection",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch MagicBoxGenerator",
+            "request": "launch",
+            "mainClass": "MagicBoxGenerator",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch MultiDimArrayFundamentals",
+            "request": "launch",
+            "mainClass": "MultiDimArrayFundamentals",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch WeatherForecast",
+            "request": "launch",
+            "mainClass": "WeatherForecast",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch AnagramFinder",
+            "request": "launch",
+            "mainClass": "data.AnagramFinder",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch LookupListTester",
+            "request": "launch",
+            "mainClass": "data.LookupListTester",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch HuffMain",
+            "request": "launch",
+            "mainClass": "data.huff.HuffMain",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Calculator",
+            "request": "launch",
+            "mainClass": "day1.Calculator",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch RectangleTest",
+            "request": "launch",
+            "mainClass": "day1.RectangleTest",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch StatisticsCalcTester",
+            "request": "launch",
+            "mainClass": "day1.StatisticsCalcTester",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch BCATreeTester",
+            "request": "launch",
+            "mainClass": "day5.BCATreeTester",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch VectorList",
+            "request": "launch",
+            "mainClass": "day8.VectorList",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex12_2",
+            "request": "launch",
+            "mainClass": "lab1_starter.ex.Ex12_2",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex12_3",
+            "request": "launch",
+            "mainClass": "lab1_starter.ex.Ex12_3",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex12_4",
+            "request": "launch",
+            "mainClass": "lab1_starter.ex.Ex12_4",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex12_6",
+            "request": "launch",
+            "mainClass": "lab1_starter.ex.Ex12_6",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Lab4_1_ParenChecker",
+            "request": "launch",
+            "mainClass": "lab4_1.Lab4_1_ParenChecker",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Lab4_2_PostfixCalculator",
+            "request": "launch",
+            "mainClass": "postfix.Lab4_2_PostfixCalculator",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Lab4_3_InfixConverter",
+            "request": "launch",
+            "mainClass": "postfix.Lab4_3_InfixConverter",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch TokenizerDemo",
+            "request": "launch",
+            "mainClass": "postfix.TokenizerDemo",
+            "projectName": "APCompcsi_d0e0218a"
+        },
+        {
+            "type": "java",
+            "name": "Launch sortingandsearching",
+            "request": "launch",
+            "mainClass": "sortingandsearching",
+            "projectName": "APCompcsi_d0e0218a"
+        }
+    ]
+}

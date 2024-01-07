@@ -1,0 +1,239 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Card represents a standard playing card.
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Card extends Actor
+{
+    public static final int KING = 13;
+    public static final int QUEEN = 12;
+    public static final int JACK = 11;
+    public static final int ACE = 1;
+    public static final int MAX_RANK = KING;
+    public static final int MIN_RANK = ACE;
+    
+    public static final int DIAMONDS = 1;
+    public static final int CLUBS = 2;
+    public static final int HEARTS = 3;
+    public static final int SPADES = 4;
+    public static final int MAX_SUIT= SPADES;
+    public static final int MIN_SUIT = DIAMONDS;
+    
+    public static final GreenfootImage CARD_BACK = new GreenfootImage("cardBack_blue2.png");
+    static {
+        CARD_BACK.scale(CARD_BACK.getWidth()/2,CARD_BACK.getHeight()/2); 
+    }    
+    public final GreenfootImage CARD_FRONT;
+    
+    
+    private int suit;
+    private int rank;
+    private int startX = 0;
+    private int startY = 0;
+    private boolean faceUp;
+     
+    public Card(int rank, int suit) {
+        this.rank = rank;
+        this.suit = suit;
+        
+        CARD_FRONT = new GreenfootImage("card" + suitToString(suit) + rankToString(rank) + ".png");
+        CARD_FRONT.scale(CARD_FRONT.getWidth()/2,CARD_FRONT.getHeight()/2);
+        
+        flipUp();
+    }
+    
+    //Overloaded constructor
+    public Card(String rank, String suit) {
+        this(rankToInt(rank), suitToInt(suit));
+    }
+    
+    //Overloaded constructor
+    public Card(int rank, String suit) {
+        this(rank, suitToInt(suit));
+    }
+    
+    //Overloaded constructor
+    public Card(String rank, int suit) {
+        this(rankToInt(rank), suit);
+    }
+    
+    public void setHome() {
+        this.startX = getX();
+        this.startY = getY();
+    }
+    
+    public void goHome() {
+        setLocation(startX, startY);
+    }
+    
+    public void flipUp() {
+        faceUp = true;
+        setImage(CARD_FRONT);
+    }
+    
+    public void flipDown() {
+        faceUp = false;
+        setImage(CARD_BACK);
+    }
+    
+    public void flip() {
+        if (faceUp)
+            flipDown();
+        else
+            flipUp();
+    }
+
+    public int getRank() {
+        return rank;
+    }
+    
+    public int getSuit() {
+        return suit;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+        if (!(obj instanceof Card))
+            return false;
+        Card that = (Card) obj;
+        return (this.rank == that.rank && this.suit == that.suit);    
+    }
+    
+    private static String rankToString(int r) {
+        String strRank;
+        switch (r) {
+            case ACE: strRank = "A"; 
+            break;
+            case JACK: strRank = "J";
+            break;
+            case QUEEN: strRank = "Q";
+            break;
+            case KING: strRank = "K";
+            break;
+            default: strRank = Integer.toString(r);
+            break;
+        }
+        return strRank;
+    }
+    
+    private static int rankToInt(String r) {
+        
+        int intRank;
+        switch (r.toLowerCase()) {
+            case "a": 
+            case "ace":
+                intRank = ACE; 
+                break;
+            case "j":
+            case "jack":
+                intRank = JACK; 
+                break;
+            case "q":
+            case "queen":
+                intRank = QUEEN; 
+                break;
+            case "k":
+            case "king":
+                intRank = KING; 
+                break;
+            default: intRank = Integer.parseInt(r);
+            break;
+        }
+        return intRank;
+    }  
+    
+    private static String suitToString(int suit) {
+        String strSuit;
+        switch (suit) {
+            case DIAMONDS: strSuit = "Diamonds"; 
+            break;
+            case CLUBS: strSuit = "Clubs";
+            break;
+            case HEARTS: strSuit = "Hearts";
+            break;
+            case SPADES: strSuit = "Spades";
+            break;
+            default: strSuit = null;
+            break;
+        }
+        return strSuit;
+    }
+    
+    private static int suitToInt(String suit) {
+        
+        int intSuit;
+        switch (suit.toLowerCase()) {
+            case "d": 
+            case "diamond":
+            case "diamonds":
+                intSuit = DIAMONDS; 
+                break;
+            case "c":
+            case "club":
+            case "clubs":
+                intSuit = CLUBS; 
+                break;
+            case "h":
+            case "heart":
+            case "hearts":
+                intSuit = HEARTS; 
+                break;
+            case "s":
+            case "spade":
+            case "spades":
+                intSuit = SPADES; 
+                break;
+            default: ;
+            intSuit = 0;
+        }
+        return intSuit;
+    }
+    
+    /**
+     * Compare this Card with the Card other for ordering.
+     * Returns a negative integer, zero, or a positive integer
+     * as this Card is less than, equal to, or greater 
+     * than the Card other.
+     * Order is determined primarily by suit order, 
+     * then secondarily by rank order.
+     */
+    public int compareTo(Card other) {
+        //many possible approaches.
+        int rank_span = (Card.MAX_RANK - Card.MIN_RANK + 1);
+        return (this.getSuit() - other.getSuit()) * rank_span + 
+            (this.getRank() - other.getRank());
+    }
+    /**
+     * If clicked on by the mouse, either:
+     * 1) Put into hand if hand does not already contain it.
+     *    Use Greenfoot.ask() to prompt the user for an index
+     *    to insert the card at. If the response is blank, 
+     *    simply add to the end (rightmost spot). Otherwise,
+     *    if given an appropriate index, add it to that index.
+     *    Otherwise
+     * 2) remove from hand if already in hand.
+     */
+    public void act() 
+    {
+        if(Greenfoot.mousePressed(this)) {
+            CardHand hand = ((CardTable) getWorld()).getHand();
+            if(hand.contains(this))
+                hand.remove(this);
+            
+            else {
+                String response = Greenfoot.ask("Add at which index in the hand?");
+                if(response.equals(""))
+                    hand.add(this);
+                else {
+                    int index = Integer.parseInt(response);
+                    if(index <= hand.size())
+                        hand.add(index, this); 
+                }
+            }  
+        }
+    }    
+}

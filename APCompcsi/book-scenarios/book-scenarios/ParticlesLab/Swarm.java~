@@ -1,0 +1,23 @@
+/**
+ * Write a description of interface Prey here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public interface Prey  
+{
+    
+
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  y   a sample parameter for a method
+     * @return     the sum of x and y 
+     */
+    public Vector fleeForce(Predator pred);
+    
+    public double nutritionValue();
+    
+    
+    
+}

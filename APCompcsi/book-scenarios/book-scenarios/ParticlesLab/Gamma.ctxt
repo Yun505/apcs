@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Gamma
+comment0.text=\r\n\ Gamma\ particles\ are\ medium-sized\ green\ particles,\ typically\ negatively\ charged.\r\n\ \r\n
+comment1.params=
+comment1.target=Gamma()
+comment1.text=\r\n\ Construct\ a\ Gamma\ Particle\ with\ default\ size,\ mass,\ velocity\ and\ color.\r\n
+numComments=2

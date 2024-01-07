@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Delta
+comment0.text=\r\n\ Delta\ particles\ are\ small\ purple\ particles,\ typically\ slightly\ positively\ charged.\r\n\ \r\n
+comment1.params=
+comment1.target=Delta()
+comment1.text=\r\n\ Construct\ a\ Delta\ Particle\ with\ default\ size,\ mass,\ velocity\ and\ color.\r\n
+numComments=2

@@ -1,0 +1,74 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Constant values
+;
+define n 	   $0B		; Input "n" parameter
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Addresses
+;
+define ans_addr	   $00   	; Final answer will be stored at $0001. 
+define temp_addr   $02		; Temporary values can be stored at $0002.
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Main Program
+; -- Push n onto the stack
+; -- Call function fib
+; -- The pop the result from the stack and store it in ans_addr
+LDA #n
+PHA 
+JSR fib
+PLA ; get result
+STA ans_addr
+BRK
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; fib(n) = fib(n-1) + fib(n-2)
+; fib(0) = 0
+; fib(1) = 1
+
+fib: 
+;checks for base cases
+TSX
+LDA $0103, X
+CMP #$01
+BEQ one
+LDA $0103, X
+CMP #$0
+BEQ zero
+
+;gets fib(n-1) and fib(n-2) then adds them after checking for the base cases of 0 or 1
+fib_continued:
+LDA $0103,X
+SEC
+SBC #$01
+PHA
+JSR fib
+TSX 
+LDA $0104, X
+SEC
+SBC #$02
+PHA
+JSR fib
+
+;gets value from fib(n-2) and stores it into temp_addr 
+PLA
+STA temp_addr
+
+;pulls fib(n-1) and adds it to fib(n-2)
+PLA
+CLC
+ADC temp_addr
+
+;transfers stack pointer and overrides the return value. 
+TSX
+STA $0103, X
+RTS
+
+;base case for 1
+one:
+RTS
+
+;base case for 0
+zero:
+RTS
+

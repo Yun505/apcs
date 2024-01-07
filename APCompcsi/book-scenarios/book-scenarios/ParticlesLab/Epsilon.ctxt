@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Epsilon
+comment0.text=\r\n\ Epsilon\ particles\ are\ small\ yellow\ particles,\ typically\ slightly\ negatively\ charged.\r\n\ \r\n
+comment1.params=
+comment1.target=Epsilon()
+comment1.text=\r\n\ Construct\ an\ Epsilon\ Particle\ with\ default\ size,\ mass,\ velocity\ and\ color.\r\n
+numComments=2

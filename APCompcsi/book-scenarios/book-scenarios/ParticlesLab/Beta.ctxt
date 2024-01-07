@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Beta
+comment0.text=\r\n\ Beta\ particles\ are\ medium-sized\ blue\ particles,\ typically\ positively\ charged.\r\n\ \r\n
+comment1.params=
+comment1.target=Beta()
+comment1.text=\r\n\ Construct\ a\ Beta\ Particle\ with\ default\ size,\ mass,\ velocity\ and\ color.\r\n
+numComments=2

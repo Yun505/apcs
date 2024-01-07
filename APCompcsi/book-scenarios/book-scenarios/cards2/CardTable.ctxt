@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=CardTable
+comment0.text=\r\n\ CardTable\ is\ a\ 2D\ surface\ for\ Card\ objects\ to\ sit\ on.\ \r\n
+comment1.params=
+comment1.target=CardTable()
+comment1.text=\r\n\ IMPLEMENTED\ FOR\ YOU\r\n\ Constructor\ for\ objects\ of\ class\ CardTable.\r\n
+comment2.params=
+comment2.target=CardHand\ getHand()
+comment3.params=
+comment3.target=Card[]\ createAllCards()
+comment3.text=\ \r\n\ Returns\ an\ array\ filled\ with\ all\ possible\ Cards\ (a\ full\ deck).\r\n
+comment4.params=arr
+comment4.target=void\ shuffle(Card[])
+comment4.text=\ \r\n\ Shuffles\ a\ card\ array\ with\ the\ Fisher-Yates\ shuffle\:\r\n\ For\ each\ index\ i,\ pick\ a\ random\ card\ from\ i\ through\r\n\ the\ end\ of\ the\ array\ and\ swap\ it\ into\ index\ i.\r\n
+comment5.params=
+comment5.target=void\ act()
+comment5.text=\r\n\ IMPLEMENTED\ FOR\ YOU\r\n\ Put\ any\ cards\ not\ in\ the\ Hand\ back\ to\ its\ original\ spot\r\n\ Assumes\ the\ contains()\ method\ in\ CardHand\ works\!\r\n
+numComments=6
